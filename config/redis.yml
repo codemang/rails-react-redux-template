@@ -1,0 +1,5 @@
+default: &default
+  host: redis
+
+development:
+  <<: *default

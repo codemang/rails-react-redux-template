@@ -11,8 +11,9 @@ services:
     expose:
       - 3000
     depends_on:
-      - postgres
       - webpacker
+      - postgres
+      - redis
     volumes:
       - bundle:/bundle
       - .:/app
@@ -37,6 +38,13 @@ services:
     env_file:
       - .env
 
+  redis:
+    image: redis:alpine
+    command: redis-server
+    volumes:
+      - redis:/data
+
 volumes:
   bundle:
   postgres:
+  redis:
