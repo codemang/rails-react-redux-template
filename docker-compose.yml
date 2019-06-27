@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  web:
+    image: rails_template
+    build:
+      context: .
+    command: ./start_rails_server.sh
+    ports:
+      - 3000:3000
+    expose:
+      - 3000
+    depends_on:
+      - postgres
+      - webpacker
+    volumes:
+      - bundle:/bundle
+      - .:/app
+    env_file:
+      - .env
+
+  webpacker:
+    image: rails_template
+    command: ./start_webpacker.sh
+    env_file:
+      - .env
+    volumes:
+      - bundle:/bundle
+      - .:/app
+    ports:
+      - 3035:3035
+
+  postgres:
+    image: postgres:10.3-alpine
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    env_file:
+      - .env
+
+volumes:
+  bundle:
+  postgres:

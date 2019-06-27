@@ -1,24 +1,56 @@
-# README
+## Dependencies
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. docker
+1. docker-compose
 
-Things you may want to cover:
+## Setup
 
-* Ruby version
+1. Clone the repo into a new directory
 
-* System dependencies
+1. Replace all instaces of `"rails_template"` in the Dockerfile with the name you
+   want for the docker image.
 
-* Configuration
+1. Create the env file from the template
 
-* Database creation
+    ```bash
+    $ cp .env.template .env
+    ```
 
-* Database initialization
+1. Build the docker image
 
-* How to run the test suite
+    ```bash
+    $ docker-compose build
+    ```
 
-* Services (job queues, cache servers, search engines, etc.)
+1. Install gems
 
-* Deployment instructions
+    ```bash
+    $ docker-compose run web bundle install
+    ```
 
-* ...
+1. Install yarn packages
+
+    ```bash
+    $ docker-compose run web yarn install
+    ```
+
+1. Initialize the database
+
+    ```bash
+    $ docker-compose run web rake db:setup
+    $ docker-compose run web rake db:migrate
+    ```
+
+1. Start the containers
+
+    ```bash
+    $ docker-compose up
+    ```
+
+## Frontend Site
+
+### Viewing
+
+The frontend site can be found at [localhost:3000](localhost:3000). If you are
+using docker-machine, you might need to provide the IP address of that machine
+instead of localhost.
