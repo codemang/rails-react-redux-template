@@ -1,5 +1,5 @@
 default: &default
-  host: redis
+  url: "redis://redis:6379"
 
 development:
   <<: *default

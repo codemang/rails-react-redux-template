@@ -44,6 +44,18 @@ services:
     volumes:
       - redis:/data
 
+  sidekiq:
+    image: rails_template
+    depends_on:
+      - postgres
+      - redis
+    command: bundle exec sidekiq -C config/sidekiq.yml
+    env_file:
+      - .env
+    volumes:
+      - bundle:/bundle
+      - .:/app
+
 volumes:
   bundle:
   postgres:
