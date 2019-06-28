@@ -1,13 +1,30 @@
-## Dependencies
+Application Server Template
+==========================
+
+This is a template for a dockerized development environment with my go-to
+technologies.
+
+## Technologies
+
+* Ruby on Rails
+* Postgres
+* Redis
+* React + Redux + ES6 + Webpacker
+* HAML
+* Sidekiq
+* ActiveAdmin
+
+## Host Dependencies
 
 1. docker
 1. docker-compose
+
 
 ## Setup
 
 1. Clone the repo into a new directory
 
-1. Replace all instaces of `"rails_template"` in the Dockerfile with the name you
+1. Replace all instaces of `"rails_template"` in the docker-compose.yml file with the name you
    want for the docker image.
 
 1. Create the env file from the template
@@ -39,6 +56,7 @@
     ```bash
     $ docker-compose run web rake db:setup
     $ docker-compose run web rake db:migrate
+    $ docker-compose run web rake db:seed
     ```
 
 1. Start the containers
