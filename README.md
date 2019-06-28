@@ -6,13 +6,21 @@ technologies.
 
 ## Technologies
 
+#### Server:
 * Ruby on Rails
+
+#### Data Stores:
 * Postgres
 * Redis
+
+#### Frontend Libraries
 * React + Redux + ES6 + Webpacker
 * HAML
+
+#### Add-Ons:
 * Sidekiq
 * ActiveAdmin
+* Devise
 
 ## Host Dependencies
 
