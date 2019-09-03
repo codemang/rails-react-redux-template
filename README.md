@@ -24,9 +24,12 @@ technologies.
 
 ## Host Dependencies
 
-1. docker
-1. docker-compose
+1. Docker for Mac
+1. Docker Sync
 
+```
+$ gem install docker-sync
+```
 
 ## Setup
 
@@ -65,6 +68,12 @@ technologies.
     $ docker-compose run web rake db:setup
     $ docker-compose run web rake db:migrate
     $ docker-compose run web rake db:seed
+    ```
+
+1. Start file syncing
+
+    ```bash
+    $ docker-sync start
     ```
 
 1. Start the containers
