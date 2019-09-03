@@ -19,3 +19,5 @@
 var componentRequireContext = require.context("frontend/javascripts/components", true);
 var ReactRailsUJS = require("react_ujs");
 ReactRailsUJS.useContext(componentRequireContext);
+
+import 'bootstrap'
