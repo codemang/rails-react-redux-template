@@ -4,6 +4,8 @@ import { Provider } from "react-redux";
 import store from "../store/index";
 import Counter from "./counter";
 
+import '../../stylesheets/application'
+
 class App extends React.Component {
   render () {
     return (
